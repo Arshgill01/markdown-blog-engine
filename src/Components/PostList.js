@@ -1,38 +1,43 @@
 import PostCard from "./PostCard";
-import { useState } from "react";
-function PostList(props){
-  
-  const posts = [
-    { title: "First Title", date: "26/10/25" },
-    { title: "Second Title", date: "27/10/25" },
-    { title: "Third Title", date: "28/10/25" }
+import { useState, useEffect } from "react";
+
+  const allPosts = [
+    { title: "First Title", date: "26/10/25", slug: "first title" },
+    { title: "Second Title", date: "27/10/25", slug: "second title" },
+    { title: "Third Title", date: "28/10/25", slug: "third title"}
   ];
-  const [type, setType] = useState("");
+function PostList(props){
+
+  let [posts, setPosts] = useState([ ])
+
+  useEffect(()=>{
+    setPosts(allPosts)
+    
+  }, [])
+  
+
+  
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredPosts = posts.filter((post)=>{
+    return post.title.toLowerCase().includes(searchTerm.toLowerCase())
+  })
   
   return(
     <div>
-      {posts.map((post, idx) => (
-        <PostCard key={idx} title={post.title} date={post.date}></PostCard>
-      ))}
+      
       <input onChange={
         (e)=>{
-          setType(e.target.value);
+          setSearchTerm(e.target.value);
 
         }
       }
-       placeholder="enter what you wanna search"></input>
+       placeholder="enter what you wanna search" value={searchTerm}/>
 
 
-    <button onClick={()=>{
-     
-    posts.forEach((post) => {
-      if (post.title.includes(type)) {
-        console.log("Found");
-      } else {
-        console.log("Not Found");
-      }
-    });
-    }}>Add</button>
+    {filteredPosts.length === 0 ? <p>The entered item is not found</p>:filteredPosts.map((post)=>{
+      return <PostCard key={post.slug} title={post.title} date={post.date}></PostCard>
+    })}
 
     </div>
   );
