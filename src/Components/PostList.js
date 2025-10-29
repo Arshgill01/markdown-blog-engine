@@ -1,6 +1,6 @@
 import PostCard from "./PostCard";
 import { useState, useEffect } from "react";
-
+import styles from "./PostList.module.css"
   const allPosts = [
     { title: "First Title", date: "26/10/25", slug: "first title" },
     { title: "Second Title", date: "27/10/25", slug: "second title" },
@@ -12,7 +12,7 @@ function PostList(props){
 
   useEffect(()=>{
     setPosts(allPosts)
-    
+
   }, [])
   
 
@@ -24,9 +24,9 @@ function PostList(props){
   })
   
   return(
-    <div>
+    <div className={styles.postListContainer}>
       
-      <input onChange={
+      <input className={styles.inputSearch}onChange={
         (e)=>{
           setSearchTerm(e.target.value);
 
@@ -35,7 +35,7 @@ function PostList(props){
        placeholder="enter what you wanna search" value={searchTerm}/>
 
 
-    {filteredPosts.length === 0 ? <p>The entered item is not found</p>:filteredPosts.map((post)=>{
+    {filteredPosts.length === 0 ? <p className={styles.noPostFoundContainer}>The entered item is not found</p>:filteredPosts.map((post)=>{
       return <PostCard key={post.slug} title={post.title} date={post.date}></PostCard>
     })}
 

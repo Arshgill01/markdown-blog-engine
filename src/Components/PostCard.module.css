@@ -1,0 +1,17 @@
+.PostCard{
+  border: 1px solid black;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  background-color: lightslategray;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.PostTitle{
+  color: lavender;
+}
+
+.PostDate{
+  font-size: 1.25rem;
+  color: thistle;
+}
