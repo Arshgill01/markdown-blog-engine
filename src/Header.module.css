@@ -19,3 +19,17 @@
 .nav a:hover{
   text-decoration: underline;
 }
+
+.toggleThemeButton {
+  background: none;
+  border: none;
+  color: #61dafb; /* Same as nav links */
+  cursor: pointer;
+  font-size: 1.2rem; /* Make icon slightly larger */
+  margin-left: 1rem;
+  padding: 0.25rem;
+}
+
+.toggleThemeButton:hover {
+  color: white; /* Make it white on hover */
+}

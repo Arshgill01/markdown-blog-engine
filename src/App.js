@@ -5,15 +5,21 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import { SinglePost } from './Components/SinglePost';
+
+import  ThemeContext  from './Context/ThemeContext';
+import { useContext } from 'react';
 function App() {
+  const {theme, setTheme} = useContext(ThemeContext);
   return (
-    <div>
+    <div className={theme === 'dark'? 'dark-theme': 'light-theme'}>
+      
       <Header/>
       <Routes>
         <Route path="/" element={<PostList></PostList>}></Route>
         <Route path="/post/:slug" element={<SinglePost></SinglePost>}></Route>
       </Routes>
-      <Footer/>      
+      <Footer/>     
+       
     </div>
   );
 }

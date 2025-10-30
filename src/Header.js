@@ -1,8 +1,15 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAddressBook, faHouse } from '@fortawesome/free-solid-svg-icons';
+import { faAddressBook, faHouse ,faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import styles from "./Header.module.css"
-
+import ThemeContext from './Context/ThemeContext';
+import { useContext } from 'react';
 function Header(props){
+  const {theme, setTheme} = useContext(ThemeContext);
+
+
+  const toggleTheme = ()=>{
+    setTheme(currTheme => (currTheme === 'light'? 'dark': 'light'))
+  }
   return(
     <header className={styles.header}>
       <div className={styles.title}><h1>Markdown-Blog-Engine</h1></div>
@@ -12,6 +19,8 @@ function Header(props){
         <a href="">About</a>
         
       </nav>
+      <button onClick={toggleTheme} className={styles.toggleThemeButton}></button>
+      <FontAwesomeIcon icon={theme === 'light'? faMoon: faSun}></FontAwesomeIcon>
     </header>
   );
 }
