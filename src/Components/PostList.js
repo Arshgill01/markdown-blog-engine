@@ -1,27 +1,19 @@
 import PostCard from "./PostCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import styles from "./PostList.module.css"
-  const allPosts = [
-    { title: "First Title", date: "26/10/25", slug: "first title" },
-    { title: "Second Title", date: "27/10/25", slug: "second title" },
-    { title: "Third Title", date: "28/10/25", slug: "third title"}
-  ];
-function PostList(props){
-
-  let [posts, setPosts] = useState([ ])
-
-  useEffect(()=>{
-    setPosts(allPosts)
-
-  }, [])
+import { usePosts } from "../Hooks/usePosts";
   
-
+function PostList(props){
+  const posts = usePosts();
+ 
   
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredPosts = posts.filter((post)=>{
+  const filteredPosts = useMemo(()=>{
+    return posts.filter((post)=>{
     return post.title.toLowerCase().includes(searchTerm.toLowerCase())
-  })
+  });
+},[posts, searchTerm]);
   
   return(
     <div className={styles.postListContainer}>

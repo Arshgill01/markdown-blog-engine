@@ -2,23 +2,7 @@ import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import { useEffect, useState } from "react";
 
-const postContent = {
 
-  "first-title":`
-# This post is related to the first entry.
-* the first point.
-* Random rambling.
-* Now, I am literally just rambling 
-`,
- "second-title":`
-# This post is related to the second entry.
-`,
-  "third-title":`
-# This post is realted to the Third entry.
-  
-  `
-
-}
 export function SinglePost(){
   const {slug} = useParams();
 
@@ -30,9 +14,23 @@ export function SinglePost(){
 
   useEffect(()=>{
 
-    const content = postContent[slug] || `# Post Not Found\n\nCould not find content for slug: ${slug}`;
-    setmarkdownContentChange(content);
-  },[slug])
+    const filePath = `/posts/${slug}.md`
+    fetch(filePath)
+      .then(response =>{
+        if(response.ok){
+          return response.text();
+        }
+        throw new Error("Post not Found")
+        })
+      .then(text=>{
+        setmarkdownContentChange(text);
+      })
+      .catch(error=>{
+        console.log("Error Fetching post : " ,error);
+        setmarkdownContentChange(`Post not found/n Could not find the content for slug:${slug}`);
+      });
+    }, [slug]);
+     
 
   return(
     <div>

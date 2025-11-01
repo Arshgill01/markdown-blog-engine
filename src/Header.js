@@ -19,8 +19,8 @@ function Header(props){
         <a href="">About</a>
         
       </nav>
-      <button onClick={toggleTheme} className={styles.toggleThemeButton}></button>
-      <FontAwesomeIcon icon={theme === 'light'? faMoon: faSun}></FontAwesomeIcon>
+      <button onClick={toggleTheme} className={styles.toggleThemeButton}> <FontAwesomeIcon icon={theme === 'light'? faMoon: faSun}></FontAwesomeIcon></button>
+      
     </header>
   );
 }
