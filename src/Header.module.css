@@ -1,10 +1,11 @@
 .header {
-  background-color: #282c34;
+  background-color: var(--bg-secondary);
   padding: 1rem;
-  color: white;
+  color: var(--text-primary);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 .title{
   font-size: 1.5rem;
@@ -12,7 +13,7 @@
 }
 
 .nav a { 
-  color: #61dafb;
+  color: var(--text-primary);
   margin-left: 1rem;
   text-decoration: none;
 }
@@ -23,7 +24,7 @@
 .toggleThemeButton {
   background: none;
   border: none;
-  color: #61dafb; /* Same as nav links */
+  color: var(--text-primary); /* Same as nav links */
   cursor: pointer;
   font-size: 1.2rem; /* Make icon slightly larger */
   margin-left: 1rem;
@@ -31,5 +32,5 @@
 }
 
 .toggleThemeButton:hover {
-  color: white; /* Make it white on hover */
+  color: var(--text-primary); /* Make it white on hover */
 }

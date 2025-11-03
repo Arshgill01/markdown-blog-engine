@@ -8,8 +8,12 @@ import { SinglePost } from './Components/SinglePost';
 
 import  ThemeContext  from './Context/ThemeContext';
 import { useContext } from 'react';
+
 function App() {
   const {theme, setTheme} = useContext(ThemeContext);
+  
+  console.log('Current theme:', theme); // Debug log
+  
   return (
     <div className={theme === 'dark'? 'dark-theme': 'light-theme'}>
       

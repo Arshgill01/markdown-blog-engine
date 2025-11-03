@@ -1,0 +1,69 @@
+.singlePostContainer {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.singlePostContainer h1,
+.singlePostContainer h2,
+.singlePostContainer h3,
+.singlePostContainer h4,
+.singlePostContainer h5,
+.singlePostContainer h6 {
+  color: var(--text-primary);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.singlePostContainer p {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.singlePostContainer a {
+  color: var(--text-accent);
+  text-decoration: none;
+}
+
+.singlePostContainer a:hover {
+  text-decoration: underline;
+}
+
+.singlePostContainer code {
+  background-color: var(--bg-secondary);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  color: var(--text-primary);
+}
+
+.singlePostContainer pre {
+  background-color: var(--bg-secondary);
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+.singlePostContainer pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+.singlePostContainer blockquote {
+  border-left: 4px solid var(--text-accent);
+  padding-left: 1rem;
+  margin-left: 0;
+  color: var(--text-muted);
+}
+
+.singlePostContainer ul,
+.singlePostContainer ol {
+  color: var(--text-primary);
+  padding-left: 2rem;
+}
+
+.singlePostContainer li {
+  margin-bottom: 0.5rem;
+}

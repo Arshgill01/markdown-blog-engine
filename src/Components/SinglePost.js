@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import { useEffect, useState } from "react";
+import styles from "./SinglePost.module.css";
 
 
 export function SinglePost(){
@@ -33,7 +34,7 @@ export function SinglePost(){
      
 
   return(
-    <div>
+    <div className={styles.singlePostContainer}>
       <ReactMarkdown>{markdownContentChange}</ReactMarkdown>
     </div>
   )

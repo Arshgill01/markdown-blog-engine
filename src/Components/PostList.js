@@ -28,7 +28,7 @@ function PostList(props){
 
 
     {filteredPosts.length === 0 ? <p className={styles.noPostFoundContainer}>The entered item is not found</p>:filteredPosts.map((post)=>{
-      return <PostCard key={post.slug} {...props} title={post.title} date={post.date}></PostCard>
+      return <PostCard key={post.slug} slug={post.slug} title={post.title} date={post.date}></PostCard>
     })}
 
     </div>
