@@ -21,6 +21,11 @@
   text-decoration: underline;
 }
 
+.activeLink {
+  text-decoration: underline;
+  font-weight: 600;
+}
+
 .toggleThemeButton {
   background: none;
   border: none;

@@ -1,0 +1,23 @@
+.staticPageContainer {
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.dark-theme .staticPageContainer {
+  background-color: rgba(30, 30, 30, 0.85);
+}
+
+.heading {
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+}
+
+.content {
+  line-height: 1.7;
+  font-size: 1rem;
+}

@@ -1,6 +1,6 @@
 import PostCard from "./PostCard";
-import { useState, useEffect, useMemo } from "react";
-import styles from "./PostList.module.css"
+import { useState, useMemo } from "react";
+import styles from "./PostList.module.css";
 import { usePosts } from "../Hooks/usePosts";
   
 function PostList(props){
